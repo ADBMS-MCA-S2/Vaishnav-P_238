@@ -1,0 +1,472 @@
+  Database and Collection Creation
+------------------------------------
+
+> use emp
+switched to db emp
+> db.createCollection("EMPL")
+
+  Inserting data into the collection
+-----------------------------------------
+
+> db.EMPL.insert({"emp_id":"101","name":"sneha","salary":45000,"role":["OB and MOB"]})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"emp_id":"102","name":"remya","salary":35000,"role":["OB and MOB"]})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"emp_id":"103","name":"dhanya","salary":65000,"role":["C and WK"]})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"emp_id":"104","name":"msd","salary":75000,"role":["EX and ABC"]})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"emp_id":"105","name":"suresh","salary":35000,"role":["RD"]})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"emp_id":"106","name":"ramesh","salary":85000,"role":["C and WK"]})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({"emp_id":"107","name":"karthik","salary":80000,"role":["EX and ABC"]})
+WriteResult({ "nInserted" : 1 })
+
+ 1st question
+---------------
+
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 45000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855859d9ee0dcfdc00dd8"),
+        "emp_id" : "102",
+        "name" : "remya",
+        "salary" : 35000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855909d9ee0dcfdc00dd9"),
+        "emp_id" : "103",
+        "name" : "dhanya",
+        "salary" : 65000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a8559a9d9ee0dcfdc00dda"),
+        "emp_id" : "104",
+        "name" : "msd",
+        "salary" : 75000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+{
+        "_id" : ObjectId("62a855a59d9ee0dcfdc00ddb"),
+        "emp_id" : "105",
+        "name" : "suresh",
+        "salary" : 35000,
+        "role" : [
+                "RD"
+        ]
+}
+{
+        "_id" : ObjectId("62a855ae9d9ee0dcfdc00ddc"),
+        "emp_id" : "106",
+        "name" : "ramesh",
+        "salary" : 85000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a855bb9d9ee0dcfdc00ddd"),
+        "emp_id" : "107",
+        "name" : "karthik",
+        "salary" : 80000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+
+ 2nd question
+---------------
+
+> db.EMPL.updateOne({"name":"sneha"},{$inc:{"salary":8000}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 53000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855859d9ee0dcfdc00dd8"),
+        "emp_id" : "102",
+        "name" : "remya",
+        "salary" : 35000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855909d9ee0dcfdc00dd9"),
+        "emp_id" : "103",
+        "name" : "dhanya",
+        "salary" : 65000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a8559a9d9ee0dcfdc00dda"),
+        "emp_id" : "104",
+        "name" : "msd",
+        "salary" : 75000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+{
+        "_id" : ObjectId("62a855a59d9ee0dcfdc00ddb"),
+        "emp_id" : "105",
+        "name" : "suresh",
+        "salary" : 35000,
+        "role" : [
+                "RD"
+        ]
+}
+{
+        "_id" : ObjectId("62a855ae9d9ee0dcfdc00ddc"),
+        "emp_id" : "106",
+        "name" : "ramesh",
+        "salary" : 85000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a855bb9d9ee0dcfdc00ddd"),
+        "emp_id" : "107",
+        "name" : "karthik",
+        "salary" : 80000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+
+ 3rd question
+---------------
+
+> db.EMPL.updateMany({},{$inc:{"salary":4000}})
+{ "acknowledged" : true, "matchedCount" : 7, "modifiedCount" : 7 }
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 57000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855859d9ee0dcfdc00dd8"),
+        "emp_id" : "102",
+        "name" : "remya",
+        "salary" : 39000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855909d9ee0dcfdc00dd9"),
+        "emp_id" : "103",
+        "name" : "dhanya",
+        "salary" : 69000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a8559a9d9ee0dcfdc00dda"),
+        "emp_id" : "104",
+        "name" : "msd",
+        "salary" : 79000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+{
+        "_id" : ObjectId("62a855a59d9ee0dcfdc00ddb"),
+        "emp_id" : "105",
+        "name" : "suresh",
+        "salary" : 39000,
+        "role" : [
+                "RD"
+        ]
+}
+{
+        "_id" : ObjectId("62a855ae9d9ee0dcfdc00ddc"),
+        "emp_id" : "106",
+        "name" : "ramesh",
+        "salary" : 89000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a855bb9d9ee0dcfdc00ddd"),
+        "emp_id" : "107",
+        "name" : "karthik",
+        "salary" : 84000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+
+ 4th question
+---------------
+
+> db.EMPL.updateOne({"name":"msd"},{$set:{"role":"C and WK"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 57000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855859d9ee0dcfdc00dd8"),
+        "emp_id" : "102",
+        "name" : "remya",
+        "salary" : 39000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855909d9ee0dcfdc00dd9"),
+        "emp_id" : "103",
+        "name" : "dhanya",
+        "salary" : 69000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a8559a9d9ee0dcfdc00dda"),
+        "emp_id" : "104",
+        "name" : "msd",
+        "salary" : 79000,
+        "role" : "C and WK"
+}
+{
+        "_id" : ObjectId("62a855a59d9ee0dcfdc00ddb"),
+        "emp_id" : "105",
+        "name" : "suresh",
+        "salary" : 39000,
+        "role" : [
+                "RD"
+        ]
+}
+{
+        "_id" : ObjectId("62a855ae9d9ee0dcfdc00ddc"),
+        "emp_id" : "106",
+        "name" : "ramesh",
+        "salary" : 89000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a855bb9d9ee0dcfdc00ddd"),
+        "emp_id" : "107",
+        "name" : "karthik",
+        "salary" : 84000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+
+ 5th question
+---------------
+
+> db.EMPL.updateOne({"name":"remya"},{$set:{"remark":"WC"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.EMPL.find().pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 57000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855909d9ee0dcfdc00dd9"),
+        "emp_id" : "103",
+        "name" : "dhanya",
+        "salary" : 69000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a8559a9d9ee0dcfdc00dda"),
+        "emp_id" : "104",
+        "name" : "msd",
+        "salary" : 79000,
+        "role" : "C and WK"
+}
+{
+        "_id" : ObjectId("62a855a59d9ee0dcfdc00ddb"),
+        "emp_id" : "105",
+        "name" : "suresh",
+        "salary" : 39000,
+        "role" : [
+                "RD"
+        ]
+}
+{
+        "_id" : ObjectId("62a855ae9d9ee0dcfdc00ddc"),
+        "emp_id" : "106",
+        "name" : "ramesh",
+        "salary" : 89000,
+        "role" : [
+                "C and WK"
+        ]
+}
+{
+        "_id" : ObjectId("62a855bb9d9ee0dcfdc00ddd"),
+        "emp_id" : "107",
+        "name" : "karthik",
+        "salary" : 84000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+{
+        "_id" : ObjectId("62a85a2c9d9ee0dcfdc00dde"),
+        "emp_id" : "102",
+        "name" : "remya",
+        "salary" : 35000,
+        "role" : [
+                "OB and MOB"
+        ],
+        "remark" : "WC"
+}
+
+ 7th question
+---------------
+
+> db.EMPL.find({"name":{$regex:"^s"}}).pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 57000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855a59d9ee0dcfdc00ddb"),
+        "emp_id" : "105",
+        "name" : "suresh",
+        "salary" : 39000,
+        "role" : [
+                "RD"
+        ]
+}
+
+ 8th question
+---------------
+
+> db.EMPL.find({"name":{$regex:"k$"}}).pretty()
+{
+        "_id" : ObjectId("62a855bb9d9ee0dcfdc00ddd"),
+        "emp_id" : "107",
+        "name" : "karthik",
+        "salary" : 84000,
+        "role" : [
+                "EX and ABC"
+        ]
+}
+
+ 9th question
+---------------
+
+> db.EMPL.find({"name":{$regex:"s"}}).pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 57000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a8559a9d9ee0dcfdc00dda"),
+        "emp_id" : "104",
+        "name" : "msd",
+        "salary" : 79000,
+        "role" : "C and WK"
+}
+{
+        "_id" : ObjectId("62a855a59d9ee0dcfdc00ddb"),
+        "emp_id" : "105",
+        "name" : "suresh",
+        "salary" : 39000,
+        "role" : [
+                "RD"
+        ]
+}
+{
+        "_id" : ObjectId("62a855ae9d9ee0dcfdc00ddc"),
+        "emp_id" : "106",
+        "name" : "ramesh",
+        "salary" : 89000,
+        "role" : [
+                "C and WK"
+        ]
+}
+
+ 11th question
+---------------
+
+> db.EMPL.find({"role":{$regex:"OB and MOB"}}).pretty()
+{
+        "_id" : ObjectId("62a855779d9ee0dcfdc00dd7"),
+        "emp_id" : "101",
+        "name" : "sneha",
+        "salary" : 57000,
+        "role" : [
+                "OB and MOB"
+        ]
+}
+{
+        "_id" : ObjectId("62a855859d9ee0dcfdc00dd8"),
+        "emp_id" : "102",
+        "name" : "remya",
+        "salary" : 39000,
+        "role" : [
+                "OB and MOB"
+        ],
+        "remark" : [
+                "WC"
+        ]
+}
+
