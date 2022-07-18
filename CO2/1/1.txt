@@ -1,0 +1,33 @@
+create database co2; 
+
+use co2;
+
+
+show tables;
+
+
+call insertinto('binoy',21);
+
+
+select * from t2;
+
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertinto`(aa varchar(10),b int)
+
+BEGIN
+
+if((select name from t2 where name like (aa)))
+
+then
+
+insert into t2 values(null,null);
+
+else
+
+insert into t2 values(aa,b);
+
+end if;
+
+END
