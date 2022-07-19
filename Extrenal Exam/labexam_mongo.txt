@@ -85,9 +85,9 @@ db.student.count({"vaccination_status":"not vaccinated"})
 
 #q4
 db.student.find({"department":"mca"},{"_id":0,"name":1,"phone":1}).sort({"lab_mark.external":-1}) 
-{ "_id" : 5, "name" : "vivek", "phone" : 8582639777 }
-{ "_id" : 1, "name" : "anjali", "phone" : 8582639562 }
-{ "_id" : 3, "name" : "bismiya", "phone" : 9446639562 }
+{ "name" : "vivek", "phone" : 8582639777 }
+{ "name" : "anjali", "phone" : 8582639562 }
+{ "name" : "bismiya", "phone" : 9446639562 }
 
 
 #q5
